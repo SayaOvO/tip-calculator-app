@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --cyan-50: hsl(189, 41%, 97%);
+  --cyan-100: hsl(185, 41%, 84%);
+  --cyan-300: hsl(184, 14%, 56%);
+  --cyan-500: hsl(172, 67%, 45%);
+  --cyan-800: hsl(186, 14%, 43%);
+  --cyan-900: hsl(183, 100%, 15%);
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Space Mono", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cyan-100);
+}
+
+.container {
+  max-width: 1020px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 32px;
+  background-color: var(--white);
+  border-radius: 12px;
+  gap: 48px;
+}
+
+.title {
+  text-align: center;
+  margin-block: 1.5em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--cyan-800);
+  letter-spacing: 8px;
+}
+
+.bill-info {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 16px;
+}
+
+.bill-info__label {
+  color: var(--cyan-300);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.bill-info__input {
+  width: 100%;
+  padding: 12px;
+  text-align: right;
+  background-color: var(--cyan-50);
+  border: none;
+  font-size: 24px;
+  border-radius: 12px;
+  color: var(--cyan-500);
+  font-weight: 700;
+}
+
+.bill-info__input-container {
+  position: relative;
+}
+
+.bill-info__input-decorator {
+  position: absolute;
+  left: 12px;
+  top: 18px;
+}
+
+.bill-info__tips {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.bill-info__tip {
+  padding-block: 12px;
+  background-color: var(--cyan-900);
+  font-size: 24px;
+  color: var(--white);
+  font-weight: 700;
+  border-radius: 12px;
+
+  &.bill-info__custom-tip {
+    background-color: var(--cyan-50);
+    color: var(--cyan-900);
+    text-align: center;
+    border: none;
+
+    &:focus {
+      outline: 2px solid var(--cyan-900);
+      outline-offset: 1px;
+    }
+
+    &::placeholder {
+      color: var(--cyan-900);
+    }
+  }
+
+  &.selected {
+    background-color: var(--cyan-500);
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.tip-info {
+  background-color: var(--cyan-900);
+  border-radius: 16px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+.tip-info__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tip-info__label > :first-child {
+  color: var(--white);
+  font-size: 20px;
+  display: block;
+}
+.tip-info__label > :last-child {
+  color: var(--cyan-300);
+}
+
+.tip-info__value {
+  color: var(--cyan-500);
+  font-size: 48px;
+}
+
+.tip-info__reset-btn {
+  width: 100%;
+  margin-top: auto;
+  padding-block: 12px;
+  border-radius: 6px;
+  background-color: var(--cyan-500);
+  color: var(--cyan-900);
+  text-transform: uppercase;
+  border: none;
+  font-weight: 700;
+  font-size: 20px;
+
+  &:disabled {
+    background-color: var(--cyan-800);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .title {
+    font-size: 20px;
+  }
+  .container {
+    padding: 24px;
+  }
+
+  .bill-info {
+    padding: 0;
+  }
+
+  .bill-info__label {
+    font-size: 14px;
+  }
+
+  .bill-info__input {
+    font-size: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--cyan-900);
+    font-weight: 700;
+  }
+  .bill-info__input-decorator {
+    top: 16px;
+    left: 16px;
+    object-fit: contain;
+    height: 12px;
+  }
+
+  .bill-info__tips {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .bill-info__tip {
+    padding-block: 8px;
+    font-size: 18px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+  }
+
+  .tip-info {
+    padding: 16px;
+  }
+
+  .tip-info__label {
+    font-size: 16px;
+  }
+  .tip-info__value {
+    font-size: 24px;
+  }
+  .tip-info__reset-btn {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .container {
+    max-width: 960px;
+  }
+}
